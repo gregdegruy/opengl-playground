@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Vendor\glm\simd">
       <UniqueIdentifier>{6a804704-dde4-4131-b800-46c688c10445}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Vendor\imgui_v_1_60">
+      <UniqueIdentifier>{3666ef8c-1731-408e-a1d9-803b959596f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vendor\imgui_v_1_60\opengl3_example">
+      <UniqueIdentifier>{0826449e-fb6e-4157-9e40-a66d5bdb0b3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -68,6 +74,18 @@
     </ClCompile>
     <ClCompile Include="Vendor\glm\detail\glm.cpp">
       <Filter>Source Files\Vendor\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\imgui_v_1_60\imgui.cpp">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\imgui_v_1_60\imgui_demo.cpp">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\imgui_v_1_60\imgui_draw.cpp">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\imgui_v_1_60\opengl3_example\imgui_impl_glfw_gl3.cpp">
+      <Filter>Source Files\Vendor\imgui_v_1_60\opengl3_example</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -823,6 +841,27 @@
     </ClInclude>
     <ClInclude Include="Vendor\glm\detail\compute_vector_relational.hpp">
       <Filter>Source Files\Vendor\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\imconfig.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\imgui.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\imgui_internal.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\stb_rect_pack.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\stb_textedit.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\stb_truetype.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\imgui_v_1_60\opengl3_example\imgui_impl_glfw_gl3.h">
+      <Filter>Source Files\Vendor\imgui_v_1_60\opengl3_example</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
