@@ -46,6 +46,7 @@ void Renderer::draw(Shader& myshader, VertexArray& vertex_array, IndexBuffer& in
 	// triple AAA games use me :) the right way to draw triple AAA mario is below
 	// want to draw mario? one vertex buffer for all his vertex data, then many index buffers to draw each pieces of the model
 	// marios boots will be a different material than his hat
+	// the shader program is bound to the current opengl context and used in this draw elements calls
 	unsigned int index_buffer_object_size = index_buffer.get_num_of_indicies();
 	glDrawElements(GL_TRIANGLES, index_buffer_object_size, GL_UNSIGNED_INT, nullptr); // nullptr since we bind buffers using glGenBuffers
 

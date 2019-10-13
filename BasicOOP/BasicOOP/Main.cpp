@@ -37,6 +37,27 @@ static void vert_and_proj_setup(float* tri_vert_buffer, glm::mat4 &proj_matrix, 
 		tri_vert_buffer[13] = 200.0f;
 		tri_vert_buffer[14] = 0.0f;
 		tri_vert_buffer[15] = 1.0f;
+
+		// to make it centered around (0,0)
+		tri_vert_buffer[0] = -50.0f;
+		tri_vert_buffer[1] = -50.0f;
+		tri_vert_buffer[2] = 0.0f;
+		tri_vert_buffer[3] = 0.0f;
+
+		tri_vert_buffer[4] = 50.0f;
+		tri_vert_buffer[5] = -50.0f;
+		tri_vert_buffer[6] = 1.0f;
+		tri_vert_buffer[7] = 0.0f;
+
+		tri_vert_buffer[8] = 50.0f;
+		tri_vert_buffer[9] = 50.0f;
+		tri_vert_buffer[10] = 1.0f;
+		tri_vert_buffer[11] = 1.0f;
+
+		tri_vert_buffer[12] = -50.0f;
+		tri_vert_buffer[13] = 50.0f;
+		tri_vert_buffer[14] = 0.0f;
+		tri_vert_buffer[15] = 1.0f;
 		
 		float left_right = 960.0f;
 		float bottom_top = 540.0f;
@@ -163,7 +184,9 @@ int main(void)
 		int window_height = 540;*/
 		glm::mat4 identity_view_matrix(1.0f);
 		// simulate moving camera to the right, result is moves all scene objects left
-		glm::mat4 view_matrix = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
+		// glm::mat4 view_matrix = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
+		// to make object centered around (0,0)
+		glm::mat4 view_matrix = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 		// simulate moving on screen object
 		glm::mat4 model_matrix = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
 		
@@ -238,7 +261,8 @@ int main(void)
 		ImGui_ImplGlfwGL3_Init(window, true);
 		ImGui::StyleColorsDark();
 
-		glm::vec3 model_matrix_translation(200, 200, 0);
+		glm::vec3 model_a_matrix_translation(200, 200, 0);
+		glm::vec3 model_b_matrix_translation(0, 0, 0);
 
 		while (!glfwWindowShouldClose(window))
 		{
@@ -252,16 +276,33 @@ int main(void)
 			// set uniform every frame... maybe not do this???
 			// pixel shader fills in the object
 			// (rasterizes) fragment shader sets color for each pixel
-			model_matrix = glm::translate(glm::mat4(1.0f), model_matrix_translation);
-			// recalculate projection every frame
-			model_view_projection_matrix
-				= orthographic_projection_matrix * view_matrix * model_matrix;			
-
 			shader.bind();
-			shader.set_uniform4f(color_uniform, 0.5f, 0.2f, blue, 1.0f);		
-			shader.set_uniform_mat4f(mvp_uniform, model_view_projection_matrix);
-			
-			renderer.draw(shader, vertexArray, indexBuffer, blue);			
+			// not needed since we draw a texture 
+			// shader.set_uniform4f(color_uniform, 0.5f, 0.2f, blue, 1.0f);		
+
+			// draw object A
+			{
+				model_matrix = glm::translate(glm::mat4(1.0f), model_a_matrix_translation);
+				// recalculate projection every frame
+				model_view_projection_matrix
+					= orthographic_projection_matrix * view_matrix * model_matrix;	
+				shader.bind(); // at scale need a cahce that let's us use an already bound shader
+				shader.set_uniform_mat4f(mvp_uniform, model_view_projection_matrix);
+				// at scale use batching (bundle all vertex buffers into a single buffer)
+				// avoid using a million draw calls
+				renderer.draw(shader, vertexArray, indexBuffer, blue);
+			}						
+
+			// draw object B
+			{
+				model_matrix = glm::translate(glm::mat4(1.0f), model_b_matrix_translation);
+				// recalculate projection every frame
+				model_view_projection_matrix
+					= orthographic_projection_matrix * view_matrix * model_matrix;
+				shader.bind(); 
+				shader.set_uniform_mat4f(mvp_uniform, model_view_projection_matrix);
+				renderer.draw(shader, vertexArray, indexBuffer, blue);
+			}
 
 			if (blue > 1.0f) {
 				increment_color = -0.05f;
@@ -296,7 +337,8 @@ int main(void)
 				// a vec3 is a struct of { T x, y, z; }, so passing
 				// in the of memory address of x using &model_matrix_translation.x
 				// gives us y and z as well because of this memory layout
-				ImGui::SliderFloat3("Model Matrix Translation", &model_matrix_translation.x, 0.0f, 960.0f);             
+				ImGui::SliderFloat3("Model A Matrix Translation", &model_a_matrix_translation.x, 0.0f, 960.0f);
+				ImGui::SliderFloat3("Model B Matrix Translation", &model_b_matrix_translation.x, 0.0f, 960.0f);
 				ImGui::Text("Average %.3f ms/frame (%.1f FPS)", 
 					1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 			}

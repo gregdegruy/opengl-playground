@@ -46,9 +46,10 @@ Can bind, unbind with renderer id holding our pointer to the binded data
 
 Graphics
 * Shader
-    * GLSL (OpenGL Shading Language)
-        * `#shader vertex` (aka pixel shader) fills in the on screen object. INput here.
-        * `#shader fragment` for each pixel adds color. OUTput here.
+    * Instructions we give to the GPU
+    * GLSL (OpenGL Shading Language) with 2 stages in the pipeline
+        * takes in data from vertex data `#shader vertex` (aka pixel shader) fills in the on screen object. output variables to be used in next stage of shader pipeline.
+        * takes in output data from vertex shader and uniforms from the cpu `#shader fragment` for each pixel adds color and outputs it to the frame buffer.
     * Uniform shader variables that are constant from one Shader (instantiation?call?) to the next.
     * Compile source text of shader.
     * Major changes in vid "Shader Abstraction in OpenGL".
@@ -94,6 +95,9 @@ Graphics
     * Use [stb image loader](https://github.com/nothings/stb) header file.
     * In OpenGL bottom left is (0,0) so we must flip our image.
     * Need "Slots" to bind textures to, most desktops have 32 slots
+
+* Materials
+    * Shader and a bunch of Uniforms.
 
 * Math
     * Matrix
