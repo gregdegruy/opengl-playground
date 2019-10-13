@@ -11,6 +11,8 @@
 
 #include "glm\glm.hpp"
 #include "glm\gtc\matrix_transform.hpp"
+#include "imgui_v_1_60\imgui.h"
+#include "imgui_v_1_60\opengl3_example\imgui_impl_glfw_gl3.h"
 
 static void vert_and_proj_setup(float* tri_vert_buffer, glm::mat4 &proj_matrix, bool one_to_one_pixel_mapping)
 {
@@ -227,34 +229,38 @@ int main(void)
 		Renderer renderer;
 
 		float blue = 0.7f;
-		float increment_color = 0.05f;
-
-		// capture FPS http://www.opengl-tutorial.org/miscellaneous/an-fps-counter/
-		double last_time = glfwGetTime();
-		int num_frames = 0;		
+		float increment_color = 0.05f;	
 
 		float increment_left_right = 1.0f;
 		float increment_bottom_top = 0.75f;
 
+		ImGui::CreateContext();
+		ImGui_ImplGlfwGL3_Init(window, true);
+		ImGui::StyleColorsDark();
+
+		glm::vec3 model_matrix_translation(200, 200, 0);
+
 		while (!glfwWindowShouldClose(window))
 		{
 			renderer.clear();			
+
+			ImGui_ImplGlfwGL3_NewFrame();
+
 			// * * * * * * * * * * * *
 			// bind everything back
 			// * * * * * * * * * * * *
 			// set uniform every frame... maybe not do this???
 			// pixel shader fills in the object
 			// (rasterizes) fragment shader sets color for each pixel
-			// shader.set_uniform4f(uniform_name, 0.5f, 0.2f, blue, 1.0f);
+			model_matrix = glm::translate(glm::mat4(1.0f), model_matrix_translation);
+			// recalculate projection every frame
+			model_view_projection_matrix
+				= orthographic_projection_matrix * view_matrix * model_matrix;			
 
-			double current_time = glfwGetTime(); 
-			++num_frames;
-			if (current_time - last_time >= 1.0) {
-				printf("%f ms/frame\n", 1000.0 / double(num_frames));
-				num_frames = 0;
-				last_time += 1.0;
-			}
-
+			shader.bind();
+			shader.set_uniform4f(color_uniform, 0.5f, 0.2f, blue, 1.0f);		
+			shader.set_uniform_mat4f(mvp_uniform, model_view_projection_matrix);
+			
 			renderer.draw(shader, vertexArray, indexBuffer, blue);			
 
 			if (blue > 1.0f) {
@@ -283,13 +289,28 @@ int main(void)
 
 				left_right = left_right + increment_left_right;
 				bottom_top = bottom_top + increment_bottom_top;	
-			}		*/	
+			}*/	
 
-			glfwSwapBuffers(window);
+			{				   
+				// SliderFloat second param exepcts a float array 
+				// a vec3 is a struct of { T x, y, z; }, so passing
+				// in the of memory address of x using &model_matrix_translation.x
+				// gives us y and z as well because of this memory layout
+				ImGui::SliderFloat3("Model Matrix Translation", &model_matrix_translation.x, 0.0f, 960.0f);             
+				ImGui::Text("Average %.3f ms/frame (%.1f FPS)", 
+					1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+			}
+
+			ImGui::Render();
+			ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+
+			glfwSwapBuffers(window); 
 			glfwPollEvents();
 		}
 	}
 
+	ImGui_ImplGlfwGL3_Shutdown();
+	ImGui::DestroyContext();
 	glfwTerminate();
 
 	return 0;
