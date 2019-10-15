@@ -46,6 +46,9 @@
     <Filter Include="Source Files\Vendor\imgui_v_1_60\opengl3_example">
       <UniqueIdentifier>{0826449e-fb6e-4157-9e40-a66d5bdb0b3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{bb6459f3-8366-495d-9dd9-75b406337ffa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="Vendor\imgui_v_1_60\opengl3_example\imgui_impl_glfw_gl3.cpp">
       <Filter>Source Files\Vendor\imgui_v_1_60\opengl3_example</Filter>
+    </ClCompile>
+    <ClCompile Include="TestClearColor.cpp">
+      <Filter>Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -862,6 +868,12 @@
     </ClInclude>
     <ClInclude Include="Vendor\imgui_v_1_60\opengl3_example\imgui_impl_glfw_gl3.h">
       <Filter>Source Files\Vendor\imgui_v_1_60\opengl3_example</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="TestClearColor.h">
+      <Filter>Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
