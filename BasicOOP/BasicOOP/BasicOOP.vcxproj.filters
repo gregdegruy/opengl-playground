@@ -49,6 +49,9 @@
     <Filter Include="Test">
       <UniqueIdentifier>{bb6459f3-8366-495d-9dd9-75b406337ffa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Verticies">
+      <UniqueIdentifier>{5b66019c-14d4-47f8-9657-0cd7763abb6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -1291,6 +1294,9 @@
   <ItemGroup>
     <Text Include="Vendor\glm\CMakeLists.txt">
       <Filter>Source Files\Vendor\glm</Filter>
+    </Text>
+    <Text Include="Vertex.txt">
+      <Filter>Resource Files\Verticies</Filter>
     </Text>
   </ItemGroup>
 </Project>

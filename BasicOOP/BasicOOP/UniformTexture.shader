@@ -17,7 +17,8 @@ void main()
 #shader fragment
 #version 330 core
 
-layout(location = 0) out vec4 color;
+layout(location = 0) out vec4 quad_color;
+layout(location = 1) out vec4 texture_color;
 
 in vec2 varying_texture_coordinate;
 
@@ -25,7 +26,8 @@ uniform vec4 u_color;
 uniform sampler2D u_texture;
 
 void main()
-{
+{	
+	quad_color = u_color;
 	vec4 texture_color = texture(u_texture, varying_texture_coordinate);
-	color = texture_color;
+	texture_color = texture_color;
 };

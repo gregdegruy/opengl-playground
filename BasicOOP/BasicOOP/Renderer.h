@@ -21,12 +21,12 @@ bool MyGLLogCall(const char* function, const char* file, int line);
 class Renderer
 {
 private:
-		
+	float m_increment_color;
 public:
+	Renderer();
 	void clear() const;
-	void draw(Shader& shader, VertexArray& vertex_array, IndexBuffer& index_buffer, float blue) const;
+	void draw(Shader& shader, VertexArray& vertex_array, IndexBuffer& index_buffer) const;
+	void draw_glow_quad(Shader& myshader, VertexArray& vertex_array, IndexBuffer& index_buffer, float& color, std::string uniform, std::string mvp_uniform);
 };
-
-
 
 #endif /* RENDERER_H */

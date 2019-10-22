@@ -21,21 +21,23 @@ bool MyGLLogCall(const char* function, const char* file, int line)
 	return true;
 }
 
+Renderer::Renderer()
+{
+	m_increment_color = 0.05f;
+}
+
 void Renderer::clear() const
 {
 	MyGLCall(glClear(GL_COLOR_BUFFER_BIT));
 }
 
-void Renderer::draw(Shader& myshader, VertexArray& vertex_array, IndexBuffer& index_buffer, float blue) const
+void Renderer::draw(Shader& myshader, VertexArray& vertex_array, IndexBuffer& index_buffer) const
 {
 	// Before this we UNBIND
 	// Generally don't need to call unbind since going to bind something new anyway
 	// * * * * * * * * * * * * *
 	// bind everything back
 	// * * * * * * * * * * * * *
-	// if want to fade in and out color
-	// shader.set_uniform4f("u_color", 0.5f, 0.2f, blue, 1.0f);
-	// if want to grow texture
 
 	myshader.bind();
 	vertex_array.bind();
@@ -49,7 +51,24 @@ void Renderer::draw(Shader& myshader, VertexArray& vertex_array, IndexBuffer& in
 	// the shader program is bound to the current opengl context and used in this draw elements calls
 	unsigned int index_buffer_object_size = index_buffer.get_num_of_indicies();
 	glDrawElements(GL_TRIANGLES, index_buffer_object_size, GL_UNSIGNED_INT, nullptr); // nullptr since we bind buffers using glGenBuffers
+}
 
-	// LEAN
-	// notice do ot un
+void Renderer::draw_glow_quad(Shader& myshader, VertexArray& vertex_array, IndexBuffer& index_buffer, float& color, std::string uniform, std::string mvp_uniform)
+{
+	myshader.bind();
+	vertex_array.bind();
+	index_buffer.bind();		
+
+	if (color > 1.0f) {
+		m_increment_color = -0.05f;
+	}
+	else if (color < 0.0f) {
+		m_increment_color = 0.05f;
+	}
+	color += m_increment_color;
+
+	myshader.set_uniform4f(uniform, 0.5f, 0.2f, color, 1.0f);	
+
+	unsigned int index_buffer_object_size = index_buffer.get_num_of_indicies();
+	glDrawElements(GL_TRIANGLES, index_buffer_object_size, GL_UNSIGNED_INT, nullptr);
 }

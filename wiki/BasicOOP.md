@@ -8,7 +8,7 @@ Every OpenGL call involves the GPU in some way. OpenGL stores memory in column m
 Depdends on: [GL Extension Wrangler](https://github.com/nigels-com/glew), [imgui](https://github.com/ocornut/imgui).
 
 # Draw Pipeline
-Bind vertex > Bind vertex array > Bind index buffer > Bind shader > GLSM fragment and vertex shader > Give all to Renderer > Renderer.Draw()
+(CPU) Bind vertex > (CPU) Bind vertex array >(CPU) Bind index buffer > (CPU) Bind shader > (GPU) GLSM fragment and vertex shader > (CPU) Give all to Renderer > (CPU) Renderer.Draw()
 * Vertex buffer has our graphics bytes.
 * Vertex array defines the memory layout of our vertex buffer.
 * Vertex buffer layout defines mem address structure.
@@ -97,17 +97,19 @@ Graphics
     * Need "Slots" to bind textures to, most desktops have 32 slots
 
 * Materials
-    * Shader and a bunch of Uniforms.
+    * Shader and Uniforms.
 
 * Math
     * Matrix
         * Projection matrix
-            * Use (glm for math)[https://github.com/g-truc/glm].
+            * Use [glm for math](https://github.com/g-truc/glm).
             * Helps image maintain aspect ratio on different screen sizes.
-            * Orthographic Matrix for 2D mostly sometimes 時々{ときどき}.
+            * Orthographic Matrix for 2D sometimes 時々{ときどき}.
             * Perspective Matrix for 3D.
+                * Matricies are relative to Normalized Device Coordinates, xy plane from -1 to 1.
+                * OpenlGL uses 0 to 1 as coordinate space then scales up.
         * Model view projection matrix
-            * View matrix code to control camera (simulated by translating all on screen objects).
+            * View matrix control camera (simulated by translating all on screen objects).
             * Model matrix code for our object (has position, rotatation, and scale).
     * Vector: directional or positional (where does ball go, where does camera go?).
 
