@@ -2,13 +2,17 @@
 
 HellowWindow::HellowWindow() {}
 
+HellowWindow::~HellowWindow() {
+	glfwTerminate();
+}
+
 int HellowWindow::run() 
 {
 	GLFWwindow* window;
 	if (!glfwInit()) {
 		return -1;
 	}
-	window = glfwCreateWindow(640, 480, "Paper Mario", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Reality Coprocessor", NULL, NULL);
 	if (!window) {
 		glfwTerminate();
 		return -1;
@@ -22,6 +26,7 @@ int HellowWindow::run()
 
 	std::cout << "Rendering...\nOpenGL version " << glGetString(GL_VERSION)
 		<< "\nGLEW version " << glewGetString(GLEW_VERSION);
+
 	while (!glfwWindowShouldClose(window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -29,8 +34,6 @@ int HellowWindow::run()
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
-	glfwTerminate();
 }
 
 void HellowWindow::legacyDrawTriangle()

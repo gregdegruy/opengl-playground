@@ -8,6 +8,7 @@ class HellowWindow
 {
 public:
 	HellowWindow();
+	~HellowWindow();
 	int run();
 	void legacyDrawTriangle();
 };

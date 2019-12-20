@@ -20,6 +20,11 @@ void Shader::bind() const
 	MyGLCall(glUseProgram(m_renderer_id));
 }
 
+void Shader::bind_fragment_location(int location, std::string name) const
+{
+	MyGLCall(glBindFragDataLocation(m_renderer_id, location, name.c_str()));
+}
+
 void Shader::unbind() const 
 { 
 	MyGLCall(glUseProgram(0));

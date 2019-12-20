@@ -26,8 +26,8 @@ uniform vec4 u_color;
 uniform sampler2D u_texture;
 
 void main()
-{	
-	quad_color = u_color;
+{		
 	vec4 texture_color = texture(u_texture, varying_texture_coordinate);
 	texture_color = texture_color;
+	quad_color = u_color;
 };

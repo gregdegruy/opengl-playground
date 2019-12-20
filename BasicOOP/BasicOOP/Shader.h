@@ -29,6 +29,7 @@ public:
 	~Shader();
 
 	void bind() const;
+	void bind_fragment_location(int location, std::string name) const;
 	void unbind() const;
 
 	void set_uniform1i(const std::string& name, int i);

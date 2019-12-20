@@ -13,6 +13,7 @@ Buffer - area of memory uninterrupted flow of information
 	* Using glew for accessing driver methods through pointers with include headers and libs. GLEW_STATIC required in preprocessor defintions
 	* All with libs for static linking not dlls.
 
+
 2. VertexBuffer - vertandshaders, and opt (optimized)
 	* Objects in memory, array of vertex data > ints > bytes > bits all
 		unsigned int buffer;
@@ -30,6 +31,7 @@ Buffer - area of memory uninterrupted flow of information
 		* Vertext Shaders
 		* Fragment shaders aka pixel shaders
 
+
 3. IndexBuffer, VertexBuffer and Shader Optimized 
 	* Triangle, a TRI, is the most primative graphics element we can express with a normal
 	* Created clear steps for createBuffer and bindVertex using the index of the vertex we want to bind, scope appears to be understood within functions
@@ -37,6 +39,7 @@ Buffer - area of memory uninterrupted flow of information
 		* Using enum to capture shader type and ShaderProgramSource struct to store shader source code string
 	* IndexBuffer to reuse memory for vertex overlap between tris
 	* glDrawElements triple AAA games use me :)
+
 
 4. Debug
 	* glDebugMessageCallback for error handling
@@ -48,10 +51,12 @@ Buffer - area of memory uninterrupted flow of information
 		* Our GLCall marco can wrap the function we suspect has issues to capture the error AND is smart enough to know the file and line we failed at
 			* We can wrap all functions with this GLCall macro... but is that efficent???
 
+
 5. Unfiorms
 	* Load data from CPU into GPU, this uniform is added in the shader file, then loaded into the buffer using glUniform4f and defining the color code directly in the cpp file
 	* Uniform calls in this implementation are done on each draw and applied to all drawn objects	
 	* This allows us to add a small flashing animation, glfwSwapInterval(3) is used to control the framerate of this color swap
+
 
 6. VAO Vertex Array Object - Vertex Arrays in OpenGL
 	* Since we're using the OpenGL compatability profile mode gives us a Vertex Array at index 0, #core profile need to create a Vertex Array object ourselves
