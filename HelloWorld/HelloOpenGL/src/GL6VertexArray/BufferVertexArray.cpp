@@ -1,5 +1,5 @@
 #include "BufferVertexArray.h"
-#include "..\debug\HelloDebugger.h"
+#include "..\GL4Debug\HelloDebugger.h"
 
 HelloDebugger helloDebuggerVertexArray;
 											// __FILE__ is not instrinsic and most comilers should support
@@ -23,7 +23,7 @@ int BufferVertexArray::run()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	window = glfwCreateWindow(640, 480, "Paper Mario", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Reality Display Processor", NULL, NULL);
 	if (!window) {
 		glfwTerminate();
 		return -1;

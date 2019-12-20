@@ -4,7 +4,7 @@ Shader::Shader() {}
 
 unsigned int Shader::compileShader(unsigned int type, const std::string& source)
 {
-	// decouple certain openGL over header like GLuint with unsigned int instead
+	// decouple openGL overhead like GLuint with unsigned int
 	unsigned int id = glCreateShader(type);
 	const char* raw_source_string = source.c_str(); // &source[0] pointer to memory address of first char in string - how can we know this mem has not been free? 
 	glShaderSource(id, 1, &raw_source_string, nullptr);

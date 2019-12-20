@@ -139,36 +139,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\debug\HelloDebugger.cpp" />
-    <ClCompile Include="src\debug\DebugShader.cpp" />
-    <ClCompile Include="src\debug\DebugBuffer.cpp" />
-    <ClCompile Include="src\uniforms\UniformBuffer.cpp" />
-    <ClCompile Include="src\uniforms\UniformShader.cpp" />
-    <ClCompile Include="src\vertandshadersoptimized\ShaderOpt.cpp" />
-    <ClCompile Include="src\vertandshadersoptimized\VertexBufferOpt.cpp" />
-    <ClCompile Include="src\vertexandshaders\Shader.cpp" />
+    <ClCompile Include="src\GL4Debug\HelloDebugger.cpp" />
+    <ClCompile Include="src\GL4Debug\DebugShader.cpp" />
+    <ClCompile Include="src\GL4Debug\DebugBuffer.cpp" />
+    <ClCompile Include="src\GL5Uniforms\UniformBuffer.cpp" />
+    <ClCompile Include="src\GL5Uniforms\UniformShader.cpp" />
+    <ClCompile Include="src\GL3VertAndShaderRefactor\ShaderOpt.cpp" />
+    <ClCompile Include="src\GL3VertAndShaderRefactor\VertexBufferOpt.cpp" />
+    <ClCompile Include="src\GL2VertexAndShader\Shader.cpp" />
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\hello\HelloWindow.cpp" />
-    <ClCompile Include="src\vertexandshaders\VertexBufferAndShader.cpp" />
-    <ClCompile Include="src\vertexarray\BufferVertexArray.cpp" />
-    <ClCompile Include="src\vertexarray\ShaderVertexArray.cpp" />
+    <ClCompile Include="src\GL1Hello\HelloWindow.cpp" />
+    <ClCompile Include="src\GL2VertexAndShader\VertexBufferAndShader.cpp" />
+    <ClCompile Include="src\GL6VertexArray\BufferVertexArray.cpp" />
+    <ClCompile Include="src\GL6VertexArray\ShaderVertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.txt" />
+    <Text Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\debug\HelloDebugger.h" />
-    <ClInclude Include="src\debug\DebugShader.h" />
-    <ClInclude Include="src\debug\DebugBuffer.h" />
-    <ClInclude Include="src\uniforms\UniformBuffer.h" />
-    <ClInclude Include="src\uniforms\UniformShader.h" />
-    <ClInclude Include="src\vertandshadersoptimized\ShaderOpt.h" />
-    <ClInclude Include="src\vertandshadersoptimized\VertexBufferOpt.h" />
-    <ClInclude Include="src\vertexandshaders\Shader.h" />
-    <ClInclude Include="src\hello\HelloWindow.h" />
-    <ClInclude Include="src\vertexandshaders\VertexBufferAndShader.h" />
-    <ClInclude Include="src\vertexarray\BufferVertexArray.h" />
-    <ClInclude Include="src\vertexarray\ShaderVertexArray.h" />
+    <ClInclude Include="src\GL4Debug\HelloDebugger.h" />
+    <ClInclude Include="src\GL4Debug\DebugShader.h" />
+    <ClInclude Include="src\GL4Debug\DebugBuffer.h" />
+    <ClInclude Include="src\GL5Uniforms\UniformBuffer.h" />
+    <ClInclude Include="src\GL5Uniforms\UniformShader.h" />
+    <ClInclude Include="src\GL3VertAndShaderRefactor\ShaderOpt.h" />
+    <ClInclude Include="src\GL3VertAndShaderRefactor\VertexBufferOpt.h" />
+    <ClInclude Include="src\GL2VertexAndShader\Shader.h" />
+    <ClInclude Include="src\GL1Hello\HelloWindow.h" />
+    <ClInclude Include="src\GL2VertexAndShader\VertexBufferAndShader.h" />
+    <ClInclude Include="src\GL6VertexArray\BufferVertexArray.h" />
+    <ClInclude Include="src\GL6VertexArray\ShaderVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\Basic.shader" />

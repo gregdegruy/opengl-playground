@@ -1,9 +1,9 @@
 #include "GL1Hello\HelloWindow.h"
-#include "GL2VertexAndShaders\VertexBufferAndShader.h"
-#include "GL3vertandshadersoptimized\VertexBufferOpt.h"
-#include "GL4debug\DebugBuffer.h"
-#include "GL5uniforms\UniformBuffer.h";
-#include "GL6vertexarray\BufferVertexArray.h"
+#include "GL2VertexAndShader\VertexBufferAndShader.h"
+#include "GL3VertAndShaderRefactor\VertexBufferOpt.h"
+#include "GL4Debug\DebugBuffer.h"
+#include "GL5Uniforms\UniformBuffer.h";
+#include "GL6VertexArray\BufferVertexArray.h"
 
 int main(void)
 {
@@ -16,7 +16,7 @@ int main(void)
 
 	int success = 0;
 
-	success = vertexBufferAndShader.run();
+	success = uniformBuffer.run();
 
 	return success;
 }

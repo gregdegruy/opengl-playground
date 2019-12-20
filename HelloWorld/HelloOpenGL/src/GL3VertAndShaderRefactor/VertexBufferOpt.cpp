@@ -6,7 +6,7 @@ int VertexBufferOpt::run()
 {
 	GLFWwindow* window;
 	if (!glfwInit()) { return -1; }
-	window = glfwCreateWindow(640, 480, "Paper Mario", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Reality Display Processor", NULL, NULL);
 	if (!window) {
 		glfwTerminate();
 		return -1;

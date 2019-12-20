@@ -12,4 +12,3 @@ public:
 	int run();
 	void createBuffer(unsigned int& buffer);
 };
-

@@ -15,89 +15,89 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\hello\HelloWindow.cpp">
+    <ClCompile Include="src\GL2VertexAndShader\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertexandshaders\Shader.cpp">
+    <ClCompile Include="src\GL2VertexAndShader\VertexBufferAndShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertexandshaders\VertexBufferAndShader.cpp">
+    <ClCompile Include="src\GL1Hello\HelloWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertandshadersoptimized\VertexBufferOpt.cpp">
+    <ClCompile Include="src\GL3VertAndShaderRefactor\ShaderOpt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertandshadersoptimized\ShaderOpt.cpp">
+    <ClCompile Include="src\GL3VertAndShaderRefactor\VertexBufferOpt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\debug\DebugBuffer.cpp">
+    <ClCompile Include="src\GL5Uniforms\UniformBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\debug\DebugShader.cpp">
+    <ClCompile Include="src\GL5Uniforms\UniformShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\debug\HelloDebugger.cpp">
+    <ClCompile Include="src\GL4Debug\DebugBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\uniforms\UniformBuffer.cpp">
+    <ClCompile Include="src\GL4Debug\DebugShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\uniforms\UniformShader.cpp">
+    <ClCompile Include="src\GL4Debug\HelloDebugger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertexarray\BufferVertexArray.cpp">
+    <ClCompile Include="src\GL6VertexArray\BufferVertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertexarray\ShaderVertexArray.cpp">
+    <ClCompile Include="src\GL6VertexArray\ShaderVertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\hello\HelloWindow.h">
+    <ClInclude Include="src\GL2VertexAndShader\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vertexandshaders\Shader.h">
+    <ClInclude Include="src\GL2VertexAndShader\VertexBufferAndShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vertexandshaders\VertexBufferAndShader.h">
+    <ClInclude Include="src\GL1Hello\HelloWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vertandshadersoptimized\VertexBufferOpt.h">
+    <ClInclude Include="src\GL3VertAndShaderRefactor\ShaderOpt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vertandshadersoptimized\ShaderOpt.h">
+    <ClInclude Include="src\GL3VertAndShaderRefactor\VertexBufferOpt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\debug\DebugBuffer.h">
+    <ClInclude Include="src\GL5Uniforms\UniformBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\debug\DebugShader.h">
+    <ClInclude Include="src\GL5Uniforms\UniformShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\debug\HelloDebugger.h">
+    <ClInclude Include="src\GL4Debug\DebugBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\uniforms\UniformShader.h">
+    <ClInclude Include="src\GL4Debug\DebugShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\uniforms\UniformBuffer.h">
+    <ClInclude Include="src\GL4Debug\HelloDebugger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vertexarray\BufferVertexArray.h">
+    <ClInclude Include="src\GL6VertexArray\BufferVertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\vertexarray\ShaderVertexArray.h">
+    <ClInclude Include="src\GL6VertexArray\ShaderVertexArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\Basic.shader" />
     <None Include="res\shaders\BasicUniform.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.md" />
   </ItemGroup>
 </Project>
