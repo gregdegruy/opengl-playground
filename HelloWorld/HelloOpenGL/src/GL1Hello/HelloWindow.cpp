@@ -1,12 +1,12 @@
 #include "HelloWindow.h"
 
-HellowWindow::HellowWindow() {}
+HelloWindow::HelloWindow() {}
 
-HellowWindow::~HellowWindow() {
+HelloWindow::~HelloWindow() {
 	glfwTerminate();
 }
 
-int HellowWindow::run() 
+int HelloWindow::run() 
 {
 	GLFWwindow* window;
 	if (!glfwInit()) {
@@ -36,7 +36,7 @@ int HellowWindow::run()
 	}
 }
 
-void HellowWindow::legacyDrawTriangle()
+void HelloWindow::legacyDrawTriangle()
 {
 	glBegin(GL_TRIANGLES);
 	glVertex2f(-0.5f, -0.5f);

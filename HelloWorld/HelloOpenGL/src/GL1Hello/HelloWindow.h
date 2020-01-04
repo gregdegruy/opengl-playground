@@ -4,11 +4,11 @@
 #include <GLFW\glfw3.h>
 
 
-class HellowWindow
+class HelloWindow
 {
 public:
-	HellowWindow();
-	~HellowWindow();
+	HelloWindow();
+	~HelloWindow();
 	int run();
 	void legacyDrawTriangle();
 };
