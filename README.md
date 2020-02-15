@@ -2,24 +2,26 @@
 
 # OpenGL Playground
 
-Implementing The Cherno.
+[TheChernoProject](https://www.patreon.com/thecherno) OpenGL.
+
+Many thanks to the [TheChernoProject OpenGL](https://www.youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2) by Yan Chernikov for sharing their knowledge. This is my stream of Consciousness while watching Yan's videos.
 
 <p align="center"><img src="img/demo.gif"></p>
 
-# The foundation
+# Core concepts
 
-Render
-* Manages all
+## Render
+* Manages Graphics and Memory
 
-Memory
+## Memory
 * Vertex Buffer
 * Vertex Buffer Memory Layout
 * Vertex Array
 * Index Buffer
 
-Graphics
+## Graphics
 * Shader
-** Blending
+* Blending
 * Textures
 
-See wiki for more.
+<a href="wiki/">Wiki</a> tab for more.
