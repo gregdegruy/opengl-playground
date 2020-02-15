@@ -1,21 +1,19 @@
 #include <iostream>
-
-#include "Renderer.h"
-
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "VertexBufferLayout.h"
-#include "IndexBuffer.h"
-#include "Shader.h"
-#include "Texture.h"
-
-#include "Test.h"
-#include "TestClearColor.h"
-
 #include "glm\glm.hpp"
 #include "glm\gtc\matrix_transform.hpp"
 #include "imgui_v_1_60\imgui.h"
 #include "imgui_v_1_60\opengl3_example\imgui_impl_glfw_gl3.h"
+
+#include "IndexBuffer.h"
+#include "Renderer.h"
+#include "Shader.h"
+#include "Test.h"
+#include "TestClearColor.h"
+#include "Texture.h"
+#include "VertexArray.h"
+#include "VertexBuffer.h"
+#include "VertexBufferLayout.h"
+
 
 static void vert_and_proj_setup(float* tri_vert_buffer, glm::mat4 &proj_matrix, bool one_to_one_pixel_mapping)
 {

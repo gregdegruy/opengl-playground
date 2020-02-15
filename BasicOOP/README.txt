@@ -42,6 +42,7 @@ C/C++
 Linker
 	General - $(SolutionDir) to where GLFW and glew static libs are located
 	Input - List the libs glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib;opengl32.lib;glew32s.lib
+	`.lib` has all code for a library, linker only pulls out the code it needs
 
 ## DRAW PIPELINE
 Bind shader > Bind vertex array > Bind index buffer > DRAW
