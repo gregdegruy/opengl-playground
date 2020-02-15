@@ -1,19 +1,18 @@
-
 # Intro
 
 [OpenGL docs](https://www.glfw.org/documentation.html).
 
 Every OpenGL call involves the GPU in some way. OpenGL stores memory in column major format when, data is read in column by column. [Abstracting OpenGL into Classes](https://www.youtube.com/watch?v=bTHqmzjm2UI&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2&index=13) and almost last vid in this series is [Writing a Basic Renderer in OpenGL](https://www.youtube.com/watch?v=jjaTTRFXRAk&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2&index=16).
 
-Depdends on: [GL Extension Wrangler](https://github.com/nigels-com/glew), [imgui](https://github.com/ocornut/imgui).
+Depends on: [GL Extension Wrangler](https://github.com/nigels-com/glew), [imgui](https://github.com/ocornut/imgui).
 
 # Draw Pipeline
-(CPU) Bind vertex > (CPU) Bind vertex array >(CPU) Bind index buffer > (CPU) Bind shader > (GPU) GLSM fragment and vertex shader > (CPU) Give all to Renderer > (CPU) Renderer.Draw()
+(CPU) Bind vertex > (CPU) Bind vertex array >(CPU) Bind index buffer > (CPU) Bind shader > (GPU) GLSL fragment and vertex shader > (CPU) Give all to Renderer > (CPU) Renderer.Draw()
 * Vertex buffer has our graphics bytes.
 * Vertex array defines the memory layout of our vertex buffer.
 * Vertex buffer layout defines mem address structure.
 * Shader and Texture adds the color and image graphics.
-* Draw earch frame on Window.
+* Draw each frame on Window.
 
 ## Unbind
 Generally don't need to call unbind since going to bind something new anyway
@@ -23,26 +22,26 @@ Generally don't need to call unbind since going to bind something new anyway
 Memory
 * Vertex Buffer
 Size of our queued up graphics data
-Tri verticies
+Tri vertices
 
 * Vertex Buffer Layout
 Struct for containing our vertex buffer attributes for our glVertexAttribPointer
 Vector of this struct
     Stride for vertex_mem_address_width between verts in our vector
     Push to add m_elements to our Buffer layout
-Ploymorphic funtion to store floats, int, and bytes
+Polymorphic function to store floats, int, and bytes
 
 * Vertex Array
 Adds collection of VertexBuffers with offsets
 Binds the vertex buffers and set memory layout
 
 * Index Buffer
-Loads rendundant vertex data during drawing
-Supporting 32 bit indicies
+Loads redundant vertex data during drawing
+Supporting 32 bit indices
 
 * Vertex Buffer & Index Buffer
 Has a Renderer ID that uniquely identifies each Vertex Buffer
-Can bind, unbind with renderer id holding our pointer to the binded data
+Can bind, unbind with renderer id holding our pointer to the bound data
 
 Graphics
 * Shader
@@ -68,7 +67,7 @@ Graphics
          glm::vec4 result = orthographic_projection_matrix * vertex_position;
         ```
         * In fragment shader, we can use the last color output to draw our texture with white.
-            ```glsm
+            ```glsl
             void main()
             {
                 vec4 texture_color = texture(u_texture, varying_texture_coordinate);
@@ -78,7 +77,7 @@ Graphics
             ```
 
 * Blending
-    * Belending colors. Render a red squrare and blue square on top of each other will get a purple square.
+    * Blending colors. Render a red squrare and blue square on top of each other will get a purple square.
     * Combine both colors using `glBlendFunc` into an "output color" and store in a "target buffer"
     * Math is take each RGBA color channel for square1 and square2 then do:
     *     sqaure1 RGBA (1.0, 1.0, 1.0, 0.5) -> SOURCE
@@ -91,7 +90,7 @@ Graphics
         ```
 
 * Textures
-    * Image files loaded into CPU memory and Shader draws by reading the images pixel array and defining what color is for earch array element.
+    * Image files loaded into CPU memory and Shader draws by reading the images pixel array and defining what color is for each array element.
     * Use [stb image loader](https://github.com/nothings/stb) header file.
     * In OpenGL bottom left is (0,0) so we must flip our image.
     * Need "Slots" to bind textures to, most desktops have 32 slots
@@ -110,10 +109,10 @@ Graphics
                 * OpenlGL uses 0 to 1 as coordinate space then scales up.
         * Model view projection matrix
             * View matrix control camera (simulated by translating all on screen objects).
-            * Model matrix code for our object (has position, rotatation, and scale).
+            * Model matrix code for our object (has position, rotation, and scale).
     * Vector: directional or positional (where does ball go, where does camera go?).
 
-## Visual Studio 2019 Properities
+## Visual Studio 2019 Properties
 Solution should target 32 bit `x86` since opengl libs are `0x20` bit compatible.
 C/C++
 * General: Add GLFW and glew include locations using `$(SolutionDir)`.
@@ -126,5 +125,4 @@ Linker
 ## Misc. Concepts
 * Quads are squares.
 * Tris are triangles.
-* Sampling: openGL uses 0 to 1 and scales depending on resolution and interpolates the color to fill in between for * earch pixel in the screen coordinates.
-
+* Sampling: OpenGL uses 0 to 1 and scales depending on resolution and interpolates the color to fill in between for * each pixel in the screen coordinates.
