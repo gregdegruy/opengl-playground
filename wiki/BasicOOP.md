@@ -114,13 +114,14 @@ Graphics
     * Vector: directional or positional (where does ball go, where does camera go?).
 
 ## Visual Studio 2019 Properities
+Solution should target 32 bit `x86` since opengl libs are `0x20` bit compatible.
 C/C++
-* General: Add GLFW and glew include locatuions using `$(SolutionDir)`.
+* General: Add GLFW and glew include locations using `$(SolutionDir)`.
 * Preprocessor: First Preprocessor Definition as `GLEW_STATIC;`.
 
 Linker
 * General: Add GLFW and glew static libs locations using `$(SolutionDir)`.
-* Input: List the libs you need, example `glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib;opengl32.lib;glew32s.lib`.
+* Input: List the libs you need, example `User32.lib;Gdi32.lib;Shell32.lib;opengl32.lib;glew32s.lib;glfw3.lib;`.
 
 ## Misc. Concepts
 * Quads are squares.
