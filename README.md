@@ -10,16 +10,16 @@ Many thanks to the [TheChernoProject OpenGL](https://www.youtube.com/playlist?li
 
 # Core concepts
 
-## Render
+### Render
 * Manages Graphics and Memory
 
-## Memory
+### Memory
 * Vertex Buffer
 * Vertex Buffer Memory Layout
 * Vertex Array
 * Index Buffer
 
-## Graphics
+### Graphics
 * Shader
 * Blending
 * Textures
